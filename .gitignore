@@ -1,0 +1,18 @@
+# Python artifacts
+*.pyc
+__pycache__/
+
+# Virtual env
+.venv/
+env/
+
+# Data files
+data/raw/
+data/processed/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# OS files
+.DS_Store
+Thumbs.db
