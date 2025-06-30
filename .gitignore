@@ -16,3 +16,9 @@ data/processed/
 # OS files
 .DS_Store
 Thumbs.db
+
+# Artifacts and logs
+experiments/
+mlruns/
+models/
+wheelhouse/

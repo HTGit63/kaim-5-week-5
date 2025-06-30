@@ -1,8 +1,12 @@
 version: '3.8'
+
 services:
   api:
-    build: .
+    build:
+      context: .
+      dockerfile: Dockerfile
+    # optional: mount your host cache read‑only
+    volumes:
+      - ~/.cache/pip:/root/.cache/pip:ro
     ports:
       - "8000:8000"
-    volumes:
-      - .:/app

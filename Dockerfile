@@ -1,21 +1,14 @@
-FROM python:3.9-slim
+FROM python:3.12-slim
+
 
 WORKDIR /app
 
-# Copy only the lean API requirements
+COPY wheelhouse /app/wheelhouse
 COPY requirements-api.txt .
 
-# Give pip more time and retries for slow networks
-ENV PIP_DEFAULT_TIMEOUT=300 \
-    PIP_RETRIES=5
+RUN pip install --no-index --find-links wheelhouse \
+    --disable-pip-version-check -r requirements-api.txt
 
-# Install all API deps in one shot
-RUN pip install --no-cache-dir --disable-pip-version-check \
-        --default-timeout=300 \
-        --retries=5 \
-        -r requirements-api.txt
-
-# Copy your application code
 COPY . .
 
 EXPOSE 8000
